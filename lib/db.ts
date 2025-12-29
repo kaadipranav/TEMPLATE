@@ -3,7 +3,7 @@ export { db, schema } from "./db/index"
 export type { User, NewUser, UsageLog, NewUsageLog } from "./db/schema"
 
 // Helper functions for common queries
-import { eq } from "drizzle-orm"
+import { eq, desc, sql, count } from "drizzle-orm"
 import { db, schema } from "./db/index"
 
 export async function getUserByClerkId(clerkId: string) {
@@ -91,4 +91,37 @@ export async function logUsage(data: {
     .returning()
   
   return log
+}
+
+// Admin functions
+export async function getAllUsers() {
+  return await db
+    .select()
+    .from(schema.users)
+    .orderBy(desc(schema.users.createdAt))
+}
+
+export async function getTotalUsers() {
+  const [result] = await db
+    .select({ count: count() })
+    .from(schema.users)
+  
+  return result?.count ?? 0
+}
+
+export async function getActiveSubscriptions() {
+  const [result] = await db
+    .select({ count: count() })
+    .from(schema.users)
+    .where(eq(schema.users.subscriptionStatus, "active"))
+  
+  return result?.count ?? 0
+}
+
+export async function getTotalUsage() {
+  const [result] = await db
+    .select({ total: sql<number>`sum(${schema.usageLogs.creditsUsed})` })
+    .from(schema.usageLogs)
+  
+  return Number(result?.total ?? 0)
 }

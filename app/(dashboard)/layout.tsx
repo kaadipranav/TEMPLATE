@@ -2,6 +2,7 @@ import { auth } from "@clerk/nextjs/server"
 import { redirect } from "next/navigation"
 import Sidebar from "@/components/layout/sidebar"
 import DashboardHeader from "@/components/layout/dashboard-header"
+import CreditsProvider from "@/components/providers/credits-provider"
 
 export default async function DashboardLayout({
   children,
@@ -16,15 +17,17 @@ export default async function DashboardLayout({
   }
   
   return (
-    <div className="flex h-screen overflow-hidden">
-      <Sidebar />
-      <div className="flex flex-1 flex-col overflow-hidden">
-        <DashboardHeader />
-        <main className="flex-1 overflow-y-auto bg-muted/50">
-          {children}
-        </main>
+    <CreditsProvider>
+      <div className="flex h-screen overflow-hidden">
+        <Sidebar />
+        <div className="flex flex-1 flex-col overflow-hidden">
+          <DashboardHeader />
+          <main className="flex-1 overflow-y-auto bg-muted/50">
+            {children}
+          </main>
+        </div>
       </div>
-    </div>
+    </CreditsProvider>
   )
 }
 
