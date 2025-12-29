@@ -1,9 +1,15 @@
 import Link from "next/link"
+import { Metadata } from "next"
 import { CheckCircle2, CreditCard, Lock, Sparkles } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+
+export const metadata: Metadata = {
+  title: "Home",
+  description: "Launch your AI-powered SaaS in 48 hours with our complete Next.js boilerplate",
+}
 
 export default function Home() {
   return (

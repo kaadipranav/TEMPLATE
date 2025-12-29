@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge"
 import { Check, Sparkles, Zap, Crown } from "lucide-react"
 import { toast } from "@/lib/utils"
 import { useSearchParams } from "next/navigation"
+import { Metadata } from "next"
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
