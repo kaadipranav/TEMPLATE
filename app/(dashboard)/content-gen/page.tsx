@@ -281,7 +281,7 @@ Topic: ${topic}`
                 <FileText className="h-12 w-12 text-muted-foreground mb-4" />
                 <h3 className="text-lg font-semibold mb-2">No content generated yet</h3>
                 <p className="text-sm text-muted-foreground max-w-md">
-                  Fill out the form and click "Generate Content" to create your content.
+                  Fill out the form and click &quot;Generate Content&quot; to create your content.
                 </p>
               </div>
             )}

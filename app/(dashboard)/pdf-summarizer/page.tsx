@@ -313,7 +313,7 @@ export default function PDFSummarizerPage() {
                 <FileQuestion className="h-12 w-12 text-muted-foreground mb-4" />
                 <h3 className="text-lg font-semibold mb-2">No summary yet</h3>
                 <p className="text-sm text-muted-foreground max-w-md">
-                  Upload a PDF file and click "Summarize" to generate an AI-powered summary.
+                  Upload a PDF file and click &quot;Summarize&quot; to generate an AI-powered summary.
                 </p>
               </div>
             )}

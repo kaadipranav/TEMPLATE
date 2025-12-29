@@ -6,7 +6,11 @@ import { join } from "path"
 import pdfParse from "pdf-parse"
 import OpenAI from "openai"
 import { streamText } from "ai"
-import { openai } from "ai/openai"
+import { createOpenAI } from "@ai-sdk/openai"
+
+const openai = createOpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+})
 
 const CREDITS_REQUIRED = 10
 const CHUNK_SIZE = 1000 // Characters per chunk
@@ -149,8 +153,9 @@ export async function POST(request: NextRequest) {
       const combinedText = chunks.join("\n\n")
 
       // Generate summary using streaming
+      const openaiModel = openai("gpt-4o-mini")
       const result = await streamText({
-        model: openai("gpt-4o-mini"),
+        model: openaiModel,
         system: `You are an expert at analyzing and summarizing documents. Provide a clear, concise, and comprehensive summary of the PDF content. 
         
 Structure your summary with:

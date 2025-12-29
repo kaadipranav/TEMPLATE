@@ -139,7 +139,7 @@ export default function AIChatPage() {
                   <Bot className="h-12 w-12 text-muted-foreground mb-4" />
                   <h3 className="text-lg font-semibold mb-2">Start a conversation</h3>
                   <p className="text-sm text-muted-foreground max-w-md">
-                    Ask me anything! I'm here to help. Each message costs 1 credit.
+                    Ask me anything! I&apos;m here to help. Each message costs 1 credit.
                   </p>
                 </div>
               ) : (

@@ -1,5 +1,5 @@
 import { streamText, generateText } from "ai"
-import { openai } from "ai/openai"
+import { createOpenAI } from "@ai-sdk/openai"
 import type { CoreMessage } from "ai"
 
 // EASY CUSTOM: Change default provider here or via env
@@ -31,7 +31,9 @@ export function getProvider(provider?: AIProvider) {
       if (!process.env.OPENAI_API_KEY) {
         throw new Error("OPENAI_API_KEY is not set")
       }
-      return openai
+      return createOpenAI({
+        apiKey: process.env.OPENAI_API_KEY,
+      })
   }
 }
 
