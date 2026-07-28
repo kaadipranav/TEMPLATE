@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="https://raw.githubusercontent.com/kaadipranav/kaadipranav/refs/heads/main/assets/img02.png"/>
+</div>
+
 # AI SaaS Starter 2025 
 
 > **Launch your AI-powered SaaS in 48 hours** – Complete Next.js boilerplate with OpenAI integration, payments, and 4 working AI examples.
